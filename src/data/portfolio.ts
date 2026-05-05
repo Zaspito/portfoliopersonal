@@ -69,7 +69,7 @@ export const brandLogos = [
 
 export const stats: Stat[] = [
   {
-    value: '4.000 -> 10.000+',
+    value: '4K -> 10K+',
     label: 'visitas mensuales',
     detail: 'Crecimiento orgánico trabajado desde SEO técnico, arquitectura y contenido.',
   },

@@ -45,7 +45,13 @@ export function Stats() {
                   {visual.note}
                 </span>
               </div>
-              <p className="text-[34px] font-black leading-[1.02] tracking-[-0.04em] text-ink">{stat.value}</p>
+              <p 
+                className={`font-black leading-[1.02] tracking-[-0.04em] text-ink ${
+                  stat.value.length > 12 ? 'text-[26px] xl:text-[30px]' : 'text-[34px]'
+                }`}
+              >
+                {stat.value}
+              </p>
               <h3 className="mt-5 text-base font-black" style={{ color: visual.accent }}>
                 {stat.label}
               </h3>
