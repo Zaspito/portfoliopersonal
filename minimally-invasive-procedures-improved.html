@@ -1,0 +1,715 @@
+<!-- wp:html -->
+<style>
+	.mis-premium-page {
+		--mis-bg: #f5f3ed;
+		--mis-panel: #ffffff;
+		--mis-panel-strong: #ffffff;
+		--mis-line: #e4dfd6;
+		--mis-line-strong: #ddd7ca;
+		--mis-cream: #f5f3ed;
+		--mis-muted: #5f6257;
+		--mis-olive: #5d6530;
+		--mis-olive-dark: #5d6530;
+		--mis-cyan: #5d6530;
+		--mis-ink: #111713;
+		--mis-radius: 28px;
+		background:
+			radial-gradient(circle at 18% 9%, rgba(93,101,48,.11), transparent 34%),
+			radial-gradient(circle at 84% 18%, rgba(228,223,214,.66), transparent 31%),
+			linear-gradient(180deg, #f5f3ed 0%, #f5f3ed 52%, #ece8df 52.1%, #f5f3ed 100%);
+		color: var(--mis-ink);
+		font-family: inherit;
+		overflow: hidden;
+	}
+
+	.mis-premium-page * {
+		box-sizing: border-box;
+	}
+
+	.mis-wrap {
+		width: min(1180px, calc(100% - 40px));
+		margin: 0 auto;
+	}
+
+	.mis-eyebrow {
+		display: inline-flex;
+		align-items: center;
+		gap: 10px;
+		margin: 0 0 18px;
+		color: var(--mis-cyan);
+		font-size: 12px;
+		font-weight: 800;
+		letter-spacing: .14em;
+		line-height: 1.3;
+		text-transform: uppercase;
+	}
+
+	.mis-eyebrow:before {
+		content: "";
+		width: 34px;
+		height: 1px;
+		background: linear-gradient(90deg, var(--mis-cyan), transparent);
+	}
+
+	.mis-title {
+		margin: 0;
+		max-width: 980px;
+		font-size: clamp(43px, 6vw, 86px);
+		font-weight: 850;
+		letter-spacing: 0;
+		line-height: .96;
+	}
+
+	.mis-title span {
+		color: var(--mis-olive-dark);
+	}
+
+	.mis-lead {
+		margin: 22px 0 0;
+		max-width: 760px;
+		color: rgba(17,23,19,.78);
+		font-size: clamp(18px, 2vw, 22px);
+		line-height: 1.68;
+	}
+
+	.mis-copy {
+		margin: 16px 0 0;
+		color: rgba(17,23,19,.68);
+		font-size: 16px;
+		line-height: 1.78;
+	}
+
+	.mis-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 12px;
+		margin-top: 34px;
+	}
+
+	.mis-btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 52px;
+		padding: 0 22px;
+		border: 1px solid transparent;
+		border-radius: 999px;
+		font-size: 15px;
+		font-weight: 800;
+		text-decoration: none;
+		transition: transform .22s ease, border-color .22s ease, background .22s ease, box-shadow .22s ease;
+	}
+
+	.mis-btn:hover {
+		transform: translateY(-2px);
+	}
+
+	.mis-btn-primary {
+		color: #ffffff;
+		background: #5d6530;
+		box-shadow: 0 18px 42px rgba(93,101,48,.18);
+	}
+
+	.mis-btn-secondary {
+		color: var(--mis-olive-dark);
+		border-color: var(--mis-olive-dark);
+		background: #f5f3ed;
+	}
+
+	.mis-card {
+		position: relative;
+		border: 1px solid var(--mis-line);
+		border-radius: var(--mis-radius);
+		background: var(--mis-panel);
+		box-shadow: 0 26px 70px rgba(67,57,36,.10);
+		overflow: hidden;
+	}
+
+	.mis-card:before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		background: linear-gradient(135deg, rgba(245,243,237,.72), transparent 42%);
+		opacity: .68;
+	}
+
+	.mis-hero {
+		position: relative;
+		padding: clamp(86px, 10vw, 136px) 0 88px;
+	}
+
+	.mis-hero-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 1.05fr) minmax(330px, .78fr);
+		gap: clamp(34px, 5vw, 70px);
+		align-items: center;
+	}
+
+	.mis-hero-panel {
+		padding: 16px;
+	}
+
+	.mis-image {
+		position: relative;
+		z-index: 1;
+		display: block;
+		width: 100%;
+		aspect-ratio: 4 / 3;
+		border-radius: 22px;
+		object-fit: cover;
+		filter: saturate(.95) contrast(1.05);
+	}
+
+	.mis-hero-caption {
+		position: relative;
+		z-index: 1;
+		margin: 16px 0 0;
+		padding: 0 4px 4px;
+		color: rgba(17,23,19,.72);
+		font-size: 15px;
+		line-height: 1.7;
+	}
+
+	.mis-signal-row {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 14px;
+		margin-top: 34px;
+	}
+
+	.mis-signal {
+		padding: 18px;
+		border: 1px solid #e4dfd6;
+		border-radius: 20px;
+		background: #ffffff;
+	}
+
+	.mis-signal strong {
+		display: block;
+		margin-bottom: 8px;
+		color: var(--mis-olive-dark);
+		font-size: 13px;
+		letter-spacing: .08em;
+		text-transform: uppercase;
+	}
+
+	.mis-signal p {
+		margin: 0;
+		color: rgba(17,23,19,.68);
+		font-size: 14px;
+		line-height: 1.58;
+	}
+
+	.mis-section {
+		padding: 92px 0;
+	}
+
+	.mis-section-light {
+		color: var(--mis-ink);
+		background:
+			linear-gradient(180deg, rgba(245,243,237,0) 0%, #f5f3ed 8%, #f5f3ed 100%);
+	}
+
+	.mis-section-head {
+		max-width: 820px;
+		margin-bottom: 36px;
+	}
+
+	.mis-section-head.center {
+		margin-right: auto;
+		margin-left: auto;
+		text-align: center;
+	}
+
+	.mis-section-head.center .mis-eyebrow {
+		justify-content: center;
+	}
+
+	.mis-section-head.center .mis-eyebrow:after {
+		content: "";
+		width: 34px;
+		height: 1px;
+		background: linear-gradient(90deg, transparent, var(--mis-olive));
+	}
+
+	.mis-light-eyebrow {
+		color: var(--mis-olive-dark);
+	}
+
+	.mis-light-eyebrow:before {
+		background: linear-gradient(90deg, var(--mis-olive-dark), transparent);
+	}
+
+	.mis-section-title {
+		margin: 0;
+		font-size: clamp(34px, 4vw, 56px);
+		font-weight: 850;
+		letter-spacing: 0;
+		line-height: 1.04;
+	}
+
+	.mis-section-text {
+		margin: 18px 0 0;
+		color: rgba(17,23,19,.72);
+		font-size: 18px;
+		line-height: 1.75;
+	}
+
+	.mis-services {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 20px;
+	}
+
+	.mis-service {
+		display: flex;
+		min-height: 100%;
+		flex-direction: column;
+		border: 1px solid rgba(93,101,48,.16);
+		border-radius: 26px;
+		background: #ffffff;
+		box-shadow: 0 22px 56px rgba(67,57,36,.08);
+		overflow: hidden;
+		transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+	}
+
+	.mis-service:hover {
+		transform: translateY(-4px);
+		border-color: rgba(93,101,48,.32);
+		box-shadow: 0 30px 70px rgba(67,57,36,.13);
+	}
+
+	.mis-service img {
+		display: block;
+		width: 100%;
+		aspect-ratio: 16 / 10;
+		object-fit: cover;
+	}
+
+	.mis-service-body {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		padding: 22px;
+	}
+
+	.mis-kicker {
+		margin: 0 0 10px;
+		color: var(--mis-olive-dark);
+		font-size: 11px;
+		font-weight: 800;
+		letter-spacing: .12em;
+		text-transform: uppercase;
+	}
+
+	.mis-service h3 {
+		margin: 0;
+		color: var(--mis-ink);
+		font-size: 25px;
+		font-weight: 850;
+		line-height: 1.14;
+	}
+
+	.mis-service p {
+		margin: 14px 0 22px;
+		color: rgba(17,23,19,.72);
+		font-size: 15px;
+		line-height: 1.72;
+	}
+
+	.mis-service .mis-btn {
+		align-self: flex-start;
+		min-height: 44px;
+		margin-top: auto;
+		padding: 0 17px;
+		color: #fff;
+		background: var(--mis-olive-dark);
+	}
+
+	.mis-benefit-band {
+		color: var(--mis-ink);
+		background: #ece8df;
+	}
+
+	.mis-benefits {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 18px;
+	}
+
+	.mis-benefit {
+		padding: 28px;
+	}
+
+	.mis-benefit-number {
+		margin: 0 0 18px;
+		color: var(--mis-olive-dark);
+		font-size: 44px;
+		font-weight: 850;
+		line-height: 1;
+	}
+
+	.mis-benefit h3 {
+		position: relative;
+		z-index: 1;
+		margin: 0 0 12px;
+		color: var(--mis-ink);
+		font-size: 24px;
+		font-weight: 850;
+		line-height: 1.18;
+	}
+
+	.mis-benefit p {
+		position: relative;
+		z-index: 1;
+		margin: 0;
+		color: rgba(17,23,19,.72);
+		font-size: 15px;
+		line-height: 1.72;
+	}
+
+	.mis-split {
+		display: grid;
+		grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+		gap: clamp(34px, 5vw, 72px);
+		align-items: center;
+	}
+
+	.mis-split img {
+		display: block;
+		width: 100%;
+		aspect-ratio: 4 / 3;
+		border-radius: 28px;
+		object-fit: cover;
+		box-shadow: 0 30px 70px rgba(67,57,36,.16);
+	}
+
+	.mis-checks {
+		display: grid;
+		gap: 12px;
+		margin: 24px 0 30px;
+		padding: 0;
+		list-style: none;
+	}
+
+	.mis-checks li {
+		position: relative;
+		padding-left: 32px;
+		color: rgba(17,23,19,.76);
+		font-size: 16px;
+		line-height: 1.62;
+	}
+
+	.mis-checks li:before {
+		content: "";
+		position: absolute;
+		top: .45em;
+		left: 0;
+		width: 18px;
+		height: 18px;
+		border-radius: 50%;
+		background: var(--mis-olive-dark);
+		box-shadow: 0 8px 18px rgba(93,101,48,.22);
+	}
+
+	.mis-faq-grid {
+		display: grid;
+		grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
+		gap: 36px;
+		align-items: start;
+	}
+
+	.mis-faq-stack {
+		display: grid;
+		gap: 14px;
+	}
+
+	.mis-faq {
+		border: 1px solid rgba(93,101,48,.16);
+		border-radius: 18px;
+		background: #ffffff;
+		box-shadow: 0 18px 44px rgba(67,57,36,.07);
+		overflow: hidden;
+	}
+
+	.mis-faq summary {
+		cursor: pointer;
+		padding: 18px 20px;
+		color: var(--mis-ink);
+		font-size: 17px;
+		font-weight: 850;
+		line-height: 1.35;
+	}
+
+	.mis-faq p {
+		margin: 0;
+		padding: 0 20px 18px;
+		color: rgba(17,23,19,.72);
+		font-size: 15px;
+		line-height: 1.72;
+	}
+
+	.mis-cta {
+		padding: 82px 0;
+		text-align: center;
+		background: #5d6530;
+	}
+
+	.mis-cta .mis-section-head {
+		margin-right: auto;
+		margin-bottom: 0;
+		margin-left: auto;
+	}
+
+	.mis-cta .mis-eyebrow,
+	.mis-cta .mis-section-title {
+		color: #ffffff;
+	}
+
+	.mis-cta .mis-eyebrow:before,
+	.mis-cta .mis-section-head.center .mis-eyebrow:after {
+		background: linear-gradient(90deg, #ffffff, rgba(255,255,255,.16));
+	}
+
+	.mis-cta .mis-section-text {
+		color: rgba(255,255,255,.86);
+	}
+
+	.mis-cta .mis-actions {
+		justify-content: center;
+	}
+
+	.mis-cta .mis-btn-primary {
+		color: #5d6530;
+		background: #ffffff;
+		box-shadow: none;
+	}
+
+	.mis-cta .mis-btn-secondary {
+		color: #ffffff;
+		border-color: #ffffff;
+		background: #5d6530;
+	}
+
+	@media (max-width: 980px) {
+		.mis-hero-grid,
+		.mis-split,
+		.mis-faq-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.mis-services,
+		.mis-benefits {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	@media (max-width: 700px) {
+		.mis-wrap {
+			width: min(100% - 28px, 1180px);
+		}
+
+		.mis-hero,
+		.mis-section,
+		.mis-cta {
+			padding: 64px 0;
+		}
+
+		.mis-services,
+		.mis-benefits,
+		.mis-signal-row {
+			grid-template-columns: 1fr;
+		}
+
+		.mis-btn {
+			width: 100%;
+		}
+	}
+</style>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<main class="mis-premium-page">
+	<section class="mis-hero">
+		<div class="mis-wrap mis-hero-grid">
+			<div>
+				<p class="mis-eyebrow">Minimally Invasive Procedures in Los Angeles</p>
+				<h1 class="mis-title">Advanced minimally invasive veterinary care for <span>companion animals</span></h1>
+				<p class="mis-lead">Los Angeles Laparoscopy Vet provides advanced minimally invasive procedures for companion animals in Santa Monica and across Los Angeles.</p>
+				<p class="mis-copy">Led by Dr. Antonio Pedraza, the clinic offers laparoscopy, endoscopy, laser and energy procedures, arthroscopy, and VITOM surgical microscope support. Each technique is selected with one goal: effective treatment with less tissue disruption whenever a minimally invasive approach is appropriate.</p>
+				<div class="mis-actions">
+					<a class="mis-btn mis-btn-primary" href="#services-overview">Explore Procedures</a>
+					<a class="mis-btn mis-btn-secondary" href="#consultation">Book a Procedure</a>
+				</div>
+				<div class="mis-signal-row" aria-label="Key procedure benefits">
+					<div class="mis-signal">
+						<strong>Small Incisions</strong>
+						<p>Tiny access points whenever the condition allows a minimally invasive procedure.</p>
+					</div>
+					<div class="mis-signal">
+						<strong>Better Visibility</strong>
+						<p>High-definition scopes and cameras help guide diagnosis and treatment.</p>
+					</div>
+					<div class="mis-signal">
+						<strong>Recovery Focus</strong>
+						<p>Less tissue trauma may help companion animals return home sooner.</p>
+					</div>
+				</div>
+			</div>
+			<aside class="mis-card mis-hero-panel" aria-label="Surgical environment">
+				<img class="mis-image" src="https://images.unsplash.com/photo-1581595220975-119360b1c63f?auto=format&amp;fit=crop&amp;fm=jpg&amp;q=70&amp;w=3000" alt="Modern veterinary surgery environment in Los Angeles" fetchpriority="high" decoding="async" />
+				<p class="mis-hero-caption">Advanced surgical equipment supports careful planning, clearer visualization, and a more comfortable experience for companion animals.</p>
+			</aside>
+		</div>
+	</section>
+
+	<section class="mis-section mis-section-light" id="services-overview">
+		<div class="mis-wrap">
+			<div class="mis-section-head center">
+				<p class="mis-eyebrow mis-light-eyebrow">Our Minimally Invasive Procedures</p>
+				<h2 class="mis-section-title">A precise approach for each patient, condition, and recovery plan</h2>
+				<p class="mis-section-text">Every companion animal is evaluated individually. When minimally invasive treatment is appropriate, Dr. Pedraza selects the technique that best matches the condition, anatomy, and expected recovery.</p>
+			</div>
+			<div class="mis-services">
+				<article class="mis-service">
+					<img src="https://images.unsplash.com/photo-1580281780460-82d277b0e3f8?auto=format&amp;fit=crop&amp;fm=jpg&amp;q=70&amp;w=2400" alt="Veterinary laparoscopy service in Los Angeles" loading="lazy" decoding="async" />
+					<div class="mis-service-body">
+						<p class="mis-kicker">Procedure 01</p>
+						<h3>Laparoscopy</h3>
+						<p>Camera-assisted abdominal procedures performed through small openings, including spay with laparoscopy, gastropexy, cryptorchid surgery, bladder stone removal, and organ biopsies.</p>
+						<a class="mis-btn" href="/laparoscopy/">View Laparoscopy</a>
+					</div>
+				</article>
+				<article class="mis-service">
+					<img src="https://images.unsplash.com/photo-1631558554770-74e921444006?auto=format&amp;fit=crop&amp;fm=jpg&amp;q=70&amp;w=2400" alt="Veterinary endoscopy service in Santa Monica" loading="lazy" decoding="async" />
+					<div class="mis-service-body">
+						<p class="mis-kicker">Procedure 02</p>
+						<h3>Endoscopy</h3>
+						<p>A camera-guided diagnostic and treatment method for gastrointestinal, respiratory, urinary, and ear-related conditions using flexible or rigid scopes.</p>
+						<a class="mis-btn" href="/veterinary-endoscopy-los-angeles/">View Endoscopy</a>
+					</div>
+				</article>
+				<article class="mis-service">
+					<img src="https://images.unsplash.com/photo-1770836037275-38b44e4b101f?auto=format&amp;fit=crop&amp;fm=jpg&amp;q=70&amp;w=2400" alt="Veterinary arthroscopy service for companion animals" loading="lazy" decoding="async" />
+					<div class="mis-service-body">
+						<p class="mis-kicker">Procedure 03</p>
+						<h3>Arthroscopy</h3>
+						<p>A minimally invasive joint procedure used to diagnose and treat selected orthopedic problems, including elbow dysplasia, shoulder injuries, and joint pain.</p>
+						<a class="mis-btn" href="/veterinary-arthroscopy-los-angeles/">View Arthroscopy</a>
+					</div>
+				</article>
+				<article class="mis-service">
+					<img src="https://images.unsplash.com/photo-1654895716780-b4664497420d?auto=format&amp;fit=crop&amp;fm=jpg&amp;q=70&amp;w=2400" alt="Laser and energy procedures for companion animals" loading="lazy" decoding="async" />
+					<div class="mis-service-body">
+						<p class="mis-kicker">Procedure 04</p>
+						<h3>Laser &amp; Energy Procedures</h3>
+						<p>Advanced laser and energy-based techniques that can cut, seal, ablate, or treat tissue with improved precision and minimal bleeding in selected cases.</p>
+						<a class="mis-btn" href="/laser-energy-procedures/">View Laser Procedures</a>
+					</div>
+				</article>
+				<article class="mis-service">
+					<img src="https://images.unsplash.com/photo-1770836037183-e0b4471fe2c0?auto=format&amp;fit=crop&amp;fm=jpg&amp;q=70&amp;w=2400" alt="VITOM surgical microscope visualization support" loading="lazy" decoding="async" />
+					<div class="mis-service-body">
+						<p class="mis-kicker">Procedure 05</p>
+						<h3>VITOM Surgical Microscope</h3>
+						<p>A high-definition exoscopic microscope that provides magnified surgical views, helping improve detail, orientation, and precision during delicate procedures.</p>
+						<a class="mis-btn" href="/vitom-surgical-microscope/">View VITOM Microscope</a>
+					</div>
+				</article>
+			</div>
+		</div>
+	</section>
+
+	<section class="mis-section mis-benefit-band">
+		<div class="mis-wrap">
+			<div class="mis-section-head center">
+				<p class="mis-eyebrow">Why Families Choose This Approach</p>
+				<h2 class="mis-section-title">Built around precision, comfort, and a clearer recovery path</h2>
+			</div>
+			<div class="mis-benefits">
+				<article class="mis-card mis-benefit">
+					<p class="mis-benefit-number">01</p>
+					<h3>Less Pain and Discomfort</h3>
+					<p>Smaller access points and reduced tissue disruption may help companion animals experience less post-procedure discomfort compared with many traditional approaches.</p>
+				</article>
+				<article class="mis-card mis-benefit">
+					<p class="mis-benefit-number">02</p>
+					<h3>Accurate Visualization</h3>
+					<p>Scopes, cameras, and high-definition visualization tools allow Dr. Pedraza to see internal structures clearly and make more informed decisions during treatment.</p>
+				</article>
+				<article class="mis-card mis-benefit">
+					<p class="mis-benefit-number">03</p>
+					<h3>Quicker Return Home</h3>
+					<p>Many minimally invasive procedures are designed to support faster healing, fewer external wounds, and a smoother recovery plan for companion animals and families.</p>
+				</article>
+			</div>
+		</div>
+	</section>
+
+	<section class="mis-section mis-section-light">
+		<div class="mis-wrap mis-split">
+			<img src="https://images.unsplash.com/photo-1770836037275-38b44e4b101f?auto=format&amp;fit=crop&amp;fm=jpg&amp;q=70&amp;w=2400" alt="Veterinary consultation and imaging environment for companion animals" loading="lazy" decoding="async" />
+			<div>
+				<p class="mis-eyebrow mis-light-eyebrow">Careful Case Selection</p>
+				<h2 class="mis-section-title">The most advanced option is only useful when it is the right option</h2>
+				<p class="mis-section-text">Before recommending any procedure, Dr. Pedraza reviews the condition, imaging, medical history, anesthesia needs, and expected recovery. Some companion animals benefit from laparoscopy, endoscopy, arthroscopy, laser support, or VITOM-assisted visualization; others may need a different treatment plan.</p>
+				<ul class="mis-checks">
+					<li>Clear explanation of the recommended procedure.</li>
+					<li>Review of benefits, limitations, and alternatives.</li>
+					<li>Careful anesthesia and monitoring planning.</li>
+					<li>Written recovery instructions after the procedure.</li>
+				</ul>
+				<a class="mis-btn mis-btn-primary" href="#consultation">Request a Consultation</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="mis-section mis-section-light">
+		<div class="mis-wrap mis-faq-grid">
+			<div class="mis-section-head">
+				<p class="mis-eyebrow mis-light-eyebrow">Frequently Asked Questions</p>
+				<h2 class="mis-section-title">Clear answers before minimally invasive care</h2>
+				<p class="mis-section-text">Families deserve practical information before making a procedure decision. These answers explain what the approach can involve and why case selection matters.</p>
+			</div>
+			<div class="mis-faq-stack">
+				<details class="mis-faq">
+					<summary>What is minimally invasive veterinary surgery?</summary>
+					<p>Minimally invasive veterinary surgery uses smaller incisions, natural openings, scopes, cameras, or advanced visualization systems to diagnose or treat selected conditions while reducing unnecessary tissue disruption.</p>
+					<p>For companion animals, this may include laparoscopy, endoscopy, arthroscopy, laser and energy-assisted procedures, or VITOM-assisted surgical visualization.</p>
+				</details>
+				<details class="mis-faq">
+					<summary>Which minimally invasive procedures are available?</summary>
+					<p>Los Angeles Laparoscopy Vet offers laparoscopy, endoscopy, laser and energy procedures, arthroscopy, and VITOM surgical microscope support for selected cases.</p>
+					<p>Each procedure is used for different clinical needs, so the best next step is a consultation to determine which option is appropriate for your companion animal.</p>
+				</details>
+				<details class="mis-faq">
+					<summary>Is minimally invasive surgery right for every companion animal?</summary>
+					<p>No. Minimally invasive surgery is recommended only when it is appropriate for the condition, anatomy, safety of the procedure, and expected outcome.</p>
+					<p>If another treatment option is safer or more effective, the team will explain the reasoning clearly before moving forward.</p>
+				</details>
+				<details class="mis-faq">
+					<summary>What areas do you serve?</summary>
+					<p>The Santa Monica clinic serves companion animals from Santa Monica, West Los Angeles, Venice, Brentwood, Pacific Palisades, Marina del Rey, Culver City, Beverly Hills, and surrounding Los Angeles communities.</p>
+					<p>Families can contact the clinic to discuss symptoms, referrals, procedure questions, and appointment availability.</p>
+				</details>
+			</div>
+		</div>
+	</section>
+
+	<section class="mis-cta" id="consultation">
+		<div class="mis-wrap">
+			<div class="mis-section-head center">
+				<p class="mis-eyebrow">Book a Procedure</p>
+				<h2 class="mis-section-title">Advanced minimally invasive procedures in Santa Monica</h2>
+				<p class="mis-section-text">Contact Los Angeles Laparoscopy Vet to discuss your companion animal, review available options, and schedule a consultation with Dr. Antonio Pedraza.</p>
+				<div class="mis-actions">
+					<a class="mis-btn mis-btn-primary" href="/book-a-procedure/">Book a Procedure</a>
+					<a class="mis-btn mis-btn-secondary" href="tel:3103103704">Call (310) 310-3704</a>
+					<a class="mis-btn mis-btn-secondary" href="/contact/">Contact the Clinic</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</main>
+<!-- /wp:html -->

@@ -1,0 +1,327 @@
+/* MIS Kadence layout rescue
+   Paste in Appearance > Customize > Additional CSS.
+   Remove the previous version of this CSS before pasting this one. */
+
+:root {
+	--mis-green: #5d6530;
+	--mis-cream: #f5f3ed;
+	--mis-band: #ece8df;
+	--mis-border: #e4dfd6;
+	--mis-border-strong: #ddd7ca;
+	--mis-text: #111713;
+	--mis-copy: #373a32;
+}
+
+/* Make Kadence content rows use a real premium width */
+#kt-layout-id_misHeroPro01 .kt-row-column-wrap,
+#kt-layout-id_misIntroPro02 .kt-row-column-wrap,
+#kt-layout-id_misServicesPro03 .kt-row-column-wrap,
+#kt-layout-id_misServicesPro04 .kt-row-column-wrap,
+#kt-layout-id_misBenefitsPro05 .kt-row-column-wrap,
+#kt-layout-id_misSplitPro06 .kt-row-column-wrap,
+#kt-layout-id_misProcessPro07 .kt-row-column-wrap,
+#kt-layout-id_misFaqPro08 .kt-row-column-wrap,
+#kt-layout-id_misCtaPro09 .kt-row-column-wrap {
+	width: min(1180px, calc(100vw - 48px)) !important;
+	max-width: 1180px !important;
+	margin-right: auto !important;
+	margin-left: auto !important;
+}
+
+/* Global cleanup for this page */
+#kt-layout-id_misHeroPro01,
+#kt-layout-id_misIntroPro02,
+#kt-layout-id_misServicesPro03,
+#kt-layout-id_misServicesPro04,
+#kt-layout-id_misBenefitsPro05,
+#kt-layout-id_misSplitPro06,
+#kt-layout-id_misProcessPro07,
+#kt-layout-id_misFaqPro08,
+#kt-layout-id_misCtaPro09 {
+	font-family: inherit;
+}
+
+#kt-layout-id_misHeroPro01 p,
+#kt-layout-id_misIntroPro02 p,
+#kt-layout-id_misServicesPro03 p,
+#kt-layout-id_misServicesPro04 p,
+#kt-layout-id_misBenefitsPro05 p,
+#kt-layout-id_misSplitPro06 p,
+#kt-layout-id_misProcessPro07 p,
+#kt-layout-id_misFaqPro08 p,
+#kt-layout-id_misCtaPro09 p {
+	margin-top: 0;
+}
+
+/* Hero */
+#kt-layout-id_misHeroPro01 .kt-row-column-wrap {
+	display: grid !important;
+	grid-template-columns: minmax(0, 1.05fr) minmax(340px, .78fr) !important;
+	gap: clamp(36px, 5vw, 70px) !important;
+	align-items: center !important;
+}
+
+#kt-layout-id_misHeroPro01 .wp-block-group {
+	box-shadow: 0 24px 54px rgba(67, 57, 36, .09);
+}
+
+/* Services: force clean card grids */
+#kt-layout-id_misServicesPro03 .kt-row-column-wrap {
+	display: grid !important;
+	grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+	gap: 24px !important;
+	align-items: stretch !important;
+}
+
+#kt-layout-id_misServicesPro04 .kt-row-column-wrap {
+	display: grid !important;
+	grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+	gap: 24px !important;
+	align-items: stretch !important;
+	width: min(780px, calc(100vw - 48px)) !important;
+	max-width: 780px !important;
+}
+
+[class*="kadence-column_misServiceProCard"] {
+	display: flex !important;
+	min-width: 0 !important;
+}
+
+[class*="kadence-column_misServiceProCard"] > .kt-inside-inner-col {
+	width: 100% !important;
+	display: flex !important;
+}
+
+[class*="kadence-column_misServiceProCard"] > .kt-inside-inner-col > .wp-block-group {
+	width: 100% !important;
+	min-height: 560px !important;
+	display: flex !important;
+	flex-direction: column !important;
+	border: 1px solid var(--mis-border) !important;
+	border-radius: 26px !important;
+	background: #ffffff !important;
+	box-shadow: 0 24px 56px rgba(67, 57, 36, .09) !important;
+	overflow: hidden !important;
+}
+
+[class*="kadence-column_misServiceProCard"] .wp-block-image {
+	width: 100% !important;
+	margin: 0 0 14px !important;
+	aspect-ratio: 16 / 10 !important;
+	border-radius: 18px !important;
+	overflow: hidden !important;
+}
+
+[class*="kadence-column_misServiceProCard"] .wp-block-image img {
+	width: 100% !important;
+	height: 100% !important;
+	max-width: none !important;
+	display: block !important;
+	aspect-ratio: 16 / 10 !important;
+	object-fit: cover !important;
+	border: 0 !important;
+	border-radius: 18px !important;
+}
+
+[class*="kadence-column_misServiceProCard"] h3 {
+	min-height: 62px !important;
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+	color: var(--mis-text) !important;
+	font-size: 26px !important;
+	line-height: 1.15 !important;
+}
+
+[class*="kadence-column_misServiceProCard"] p:not(:first-child) {
+	color: var(--mis-copy) !important;
+	font-size: 15px !important;
+	line-height: 1.68 !important;
+}
+
+[class*="kadence-column_misServiceProCard"] .wp-block-buttons {
+	margin-top: auto !important;
+}
+
+[class*="kadence-column_misServiceProCard"] .wp-block-button__link {
+	min-height: 42px !important;
+	display: inline-flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	border: 0 !important;
+	border-radius: 999px !important;
+	background: var(--mis-green) !important;
+	color: #ffffff !important;
+	font-size: 12px !important;
+	font-weight: 800 !important;
+	letter-spacing: .02em !important;
+	text-transform: uppercase !important;
+}
+
+/* Benefits and process cards */
+#kt-layout-id_misBenefitsPro05 .kt-row-column-wrap,
+#kt-layout-id_misProcessPro07 .kt-row-column-wrap {
+	display: grid !important;
+	align-items: stretch !important;
+	gap: 22px !important;
+}
+
+#kt-layout-id_misBenefitsPro05 .kt-row-column-wrap {
+	grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+}
+
+#kt-layout-id_misProcessPro07 .kt-row-column-wrap {
+	grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+}
+
+[class*="kadence-column_misBenefitPro"],
+[class*="kadence-column_misProcessPro"] {
+	display: flex !important;
+	min-width: 0 !important;
+}
+
+[class*="kadence-column_misBenefitPro"] > .kt-inside-inner-col,
+[class*="kadence-column_misProcessPro"] > .kt-inside-inner-col {
+	width: 100% !important;
+	display: flex !important;
+}
+
+[class*="kadence-column_misBenefitPro"] > .kt-inside-inner-col > .wp-block-group,
+[class*="kadence-column_misProcessPro"] > .kt-inside-inner-col > .wp-block-group {
+	width: 100% !important;
+	height: 100% !important;
+	display: flex !important;
+	flex-direction: column !important;
+	border-color: var(--mis-border-strong) !important;
+	box-shadow: 0 20px 48px rgba(67, 57, 36, .08) !important;
+}
+
+[class*="kadence-column_misBenefitPro"] h3,
+[class*="kadence-column_misProcessPro"] h3 {
+	min-height: 58px !important;
+}
+
+/* Split images */
+#kt-layout-id_misSplitPro06 .kt-row-column-wrap {
+	display: grid !important;
+	grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr) !important;
+	gap: clamp(34px, 5vw, 68px) !important;
+	align-items: center !important;
+}
+
+#kt-layout-id_misHeroPro01 .wp-block-image,
+#kt-layout-id_misSplitPro06 .wp-block-image {
+	width: 100% !important;
+	margin: 0 !important;
+	aspect-ratio: 4 / 3 !important;
+	overflow: hidden !important;
+}
+
+#kt-layout-id_misHeroPro01 .wp-block-image img,
+#kt-layout-id_misSplitPro06 .wp-block-image img {
+	width: 100% !important;
+	height: 100% !important;
+	display: block !important;
+	object-fit: cover !important;
+}
+
+/* FAQ */
+#kt-layout-id_misFaqPro08 .kt-row-column-wrap {
+	display: grid !important;
+	grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr) !important;
+	gap: 36px !important;
+	align-items: start !important;
+}
+
+#kt-layout-id_misFaqPro08 .wp-block-details {
+	margin: 0 !important;
+	border-color: var(--mis-border) !important;
+	background: #ffffff !important;
+	box-shadow: 0 18px 42px rgba(67, 57, 36, .06) !important;
+}
+
+#kt-layout-id_misFaqPro08 summary {
+	font-size: 17px !important;
+	font-weight: 800 !important;
+	line-height: 1.35 !important;
+}
+
+/* CTA */
+#kt-layout-id_misCtaPro09 .wp-block-button__link {
+	min-height: 50px !important;
+	display: inline-flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	font-weight: 800 !important;
+}
+
+@media (max-width: 1024px) {
+	#kt-layout-id_misHeroPro01 .kt-row-column-wrap,
+	#kt-layout-id_misSplitPro06 .kt-row-column-wrap,
+	#kt-layout-id_misFaqPro08 .kt-row-column-wrap {
+		grid-template-columns: 1fr !important;
+	}
+
+	#kt-layout-id_misServicesPro03 .kt-row-column-wrap,
+	#kt-layout-id_misServicesPro04 .kt-row-column-wrap,
+	#kt-layout-id_misBenefitsPro05 .kt-row-column-wrap,
+	#kt-layout-id_misProcessPro07 .kt-row-column-wrap {
+		width: min(760px, calc(100vw - 40px)) !important;
+		max-width: 760px !important;
+		grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+	}
+
+	#kt-layout-id_misFaqPro08 .wp-block-spacer {
+		height: 0 !important;
+	}
+}
+
+@media (max-width: 767px) {
+	#kt-layout-id_misHeroPro01 .kt-row-column-wrap,
+	#kt-layout-id_misIntroPro02 .kt-row-column-wrap,
+	#kt-layout-id_misServicesPro03 .kt-row-column-wrap,
+	#kt-layout-id_misServicesPro04 .kt-row-column-wrap,
+	#kt-layout-id_misBenefitsPro05 .kt-row-column-wrap,
+	#kt-layout-id_misSplitPro06 .kt-row-column-wrap,
+	#kt-layout-id_misProcessPro07 .kt-row-column-wrap,
+	#kt-layout-id_misFaqPro08 .kt-row-column-wrap,
+	#kt-layout-id_misCtaPro09 .kt-row-column-wrap {
+		width: min(100% - 28px, 520px) !important;
+		max-width: 520px !important;
+		grid-template-columns: 1fr !important;
+		gap: 18px !important;
+	}
+
+	#kt-layout-id_misHeroPro01 h1 {
+		font-size: 42px !important;
+		line-height: 1.05 !important;
+	}
+
+	#kt-layout-id_misIntroPro02 h2,
+	#kt-layout-id_misSplitPro06 h2,
+	#kt-layout-id_misFaqPro08 h2,
+	#kt-layout-id_misCtaPro09 h2 {
+		font-size: 34px !important;
+		line-height: 1.12 !important;
+	}
+
+	[class*="kadence-column_misServiceProCard"] > .kt-inside-inner-col > .wp-block-group {
+		min-height: 0 !important;
+	}
+
+	[class*="kadence-column_misServiceProCard"] h3,
+	[class*="kadence-column_misBenefitPro"] h3,
+	[class*="kadence-column_misProcessPro"] h3 {
+		min-height: 0 !important;
+	}
+
+	#kt-layout-id_misHeroPro01 .wp-block-button,
+	#kt-layout-id_misCtaPro09 .wp-block-button {
+		width: 100% !important;
+	}
+
+	#kt-layout-id_misHeroPro01 .wp-block-button__link,
+	#kt-layout-id_misCtaPro09 .wp-block-button__link {
+		width: 100% !important;
+		text-align: center !important;
+	}
+}
