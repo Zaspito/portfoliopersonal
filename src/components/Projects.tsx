@@ -51,7 +51,7 @@ function ProjectMockup({ project }: { project: Project }) {
     ];
 
     return (
-      <div className="h-64 rounded-[24px] bg-[#f7f9fb] p-5">
+      <div className="h-auto min-h-[16rem] rounded-[24px] bg-[#f7f9fb] p-5">
         <p className="text-sm font-black uppercase tracking-[0.16em] text-cobalt">Lead routing</p>
         <div className="mt-6 flex items-center justify-between gap-2 rounded-[22px] bg-white p-4 shadow-sm">
           {tools.map((tool, index) => (
@@ -77,7 +77,7 @@ function ProjectMockup({ project }: { project: Project }) {
 
   if (project.visual === 'ai') {
     return (
-      <div className="h-64 rounded-[24px] bg-[#f6f3ff] p-5">
+      <div className="h-auto min-h-[16rem] rounded-[24px] bg-[#f6f3ff] p-5">
         <p className="text-sm font-black uppercase tracking-[0.16em] text-[#6f5bd6]">IA aplicada</p>
         <div className="mt-6 grid grid-cols-2 gap-3">
           <div className="rounded-[22px] bg-white p-5 shadow-sm">
