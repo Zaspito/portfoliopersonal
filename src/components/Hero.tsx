@@ -11,7 +11,7 @@ export function Hero() {
     <section id="inicio" className="relative">
       <motion.div
         style={{ y: heroY }}
-        className="pointer-events-none absolute left-1/2 top-20 h-64 w-[42rem] -translate-x-1/2 rounded-full bg-white/60 blur-3xl"
+        className="pointer-events-none absolute left-1/2 top-20 h-64 w-full max-w-[42rem] -translate-x-1/2 rounded-full bg-white/60 blur-3xl"
       />
       <div className="section-shell grid items-center gap-10 py-14 sm:py-16 lg:grid-cols-[0.88fr_1.12fr] lg:py-20">
         <motion.div
