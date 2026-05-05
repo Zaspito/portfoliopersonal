@@ -13,7 +13,7 @@ import { Stats } from './components/Stats';
 
 export default function App() {
   return (
-    <div className="min-h-screen overflow-hidden text-ink">
+    <div className="min-h-screen overflow-x-hidden text-ink">
       <GlobalBackground />
       <Header />
       <main>
