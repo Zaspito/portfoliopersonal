@@ -64,8 +64,10 @@ a {
 }
 
 .section-shell {
-  width: min(1320px, calc(100% - 96px));
+  width: 100%;
+  max-width: 1320px;
   margin-inline: auto;
+  padding-inline: 48px;
 }
 
 .glass-panel {
@@ -101,6 +103,6 @@ a {
 
 @media (max-width: 768px) {
   .section-shell {
-    width: min(100% - 32px, 1320px);
+    padding-inline: 20px;
   }
 }
